@@ -1,45 +1,112 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+    return {
+        store: {
+            c:0,
+            characters: null,
+            planets: null,
+            naves:null,
+            favorite: [],
+            /* lista:[], */
+        },
+        actions: {
+            getDataCharacters: async (url) => {
+                if (url.includes("page")) {
+                    let page = url.split("=")[1];
+                    if (page > 1) {
+                        setStore({
+                            c: parseInt(page) * 10 - 10
+                        })
+                    } else {
+                        setStore({
+                            c: 0
+                        })
+                    }
+                } else {
+                    setStore({
+                        c: 0
+                    })
+                }
+                const response = await fetch(url)
+                const data = await response.json();
+                setStore({
+                    characters: data,
+                })
+            },
+           
+            getDataPlanets: async (url) => {
+                if (url.includes("page")) {
+                    let page = url.split("=")[1];
+                    if (page > 1) {
+                        setStore({
+                            c: parseInt(page) * 10 - 10
+                        })
+                    } else {
+                        setStore({
+                            c: 0
+                        })
+                    }
+                } else {
+                    setStore({
+                        c: 0
+                    })
+                }
+                const resp = await fetch(url);
+                const dataPlanets = await resp.json()
+                setStore({
+                    planets: dataPlanets
+                })
+            },
+            getDataNave: async (url) => {
+                if (url.includes("page")) {
+                    let page = url.split("=")[1];
+                    if (page > 1) {
+                        setStore({
+                            c: parseInt(page) * 10 - 10
+                        })
+                    } else {
+                        setStore({
+                            c: 0
+                        })
+                    }
+                } else {
+                    setStore({
+                        c: 0
+                    })
+                }
+                const resp = await fetch(url);
+                const dataNave = await resp.json();
+                setStore ({
+                    naves: dataNave
+                })
+            },
+            addFavorite: (personaje) => {
+                if (getStore().favorite.includes(personaje)){
+                    alert("Ya se encuentra en tus favoritos")
+                } else {
+                setStore({
+                    favorite: getStore().favorite.concat(personaje)
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
-};
+                })
+                getActions().saveFav()
+            }},
+        
+            deleteFavorite: (personaje) => {
+                setStore({
+                    favorite: getStore().favorite.filter(fav => fav !== personaje)
+                })
+                getActions().saveFav()
+            },
+            saveFav: () => {
+                localStorage.setItem('lista', JSON.stringify(getStore().favorite))
+            },
+            getList: () => {
+                if (localStorage.getItem('lista')) {
+                    let data = localStorage.getItem('lista');
+                    setStore({ favorite: JSON.parse(data)})
+                }
+            }
+        }
+    }
+}
 
 export default getState;

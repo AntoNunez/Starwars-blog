@@ -1,17 +1,39 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
+import React, { useContext, useState,useEffect } from "react";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const [state, setState] = useState({
+		variant: "dark",
+		bg: "transparent",
+		shadow: null,
+	});
+	const listenScrollEvent = (e) => {
+		if (window.scrollY > 50) {
+			
+			setState({ bg: "transparent", shadow: null });
+		} else {
+
+			setState({ bg: "dark", shadow: "shadow" });
+		}
+	};
+	useEffect(() => {
+		window.addEventListener("scroll", listenScrollEvent);
+	}, []);
+
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+		<nav
+			className={`navbar mb-5 navbar-expand-lg  bg-${state.bg} fixed-top ${!!state.shadow ? state.shadow : ""
+				}`}
+		>
+
+			<Link className="navbar-brand ms-5" to="/">
+				<img className="logo" src="http://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG34.png" />
 			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
+
+
 		</nav>
 	);
 };

@@ -1,3 +1,73 @@
+
+
+.row{
+   
+  background-image:linear-gradient(to right top, #080603, #22211e, #3a3834, #53514b, #6d6c64, #706f67, #74736b, #77766e, #63635c, #50504b, #3e3e3b, #2d2d2b);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.title{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: rgba(255, 213, 0, 0.644);
+}
+.logo {
+    margin-left: 20px;
+    width: 80px;
+	height: 80px;
+
+}
+.far.fa-star:hover {
+  font-size: 25px;
+}
+
+.card-footer{
+
+  font-size: 35px;
+  margin-top: 5px;
+  padding: 8px;
+  cursor: pointer;
+  
+}
+.container,
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+@media (min-width: 576px) {
+    .container, .container-sm {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container, .container-sm, .container-md {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container, .container-sm, .container-md, .container-lg {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+      max-width: 1140px;
+    }
+  }
+
+
 /* 
     General Styles
 */
