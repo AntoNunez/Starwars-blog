@@ -1,7 +1,7 @@
-
 import { Link } from "react-router-dom";
 import React, { useContext, useState,useEffect } from "react";
 import { Context } from "../store/appContext";
+
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -25,12 +25,12 @@ export const Navbar = () => {
 
 	return (
 		<nav
-			className={`navbar mb-5 navbar-expand-lg  bg-${state.bg} fixed-top ${!!state.shadow ? state.shadow : ""
+			className={`navbar mb-5 navbar-expand-lg bg-${state.bg} fixed-top ${!!state.shadow ? state.shadow : ""
 				}`}
 		>
-
-			<Link className="navbar-brand ms-5" to="/">
-				<img className="logo" src="http://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG34.png" />
+			
+			<Link className= "navbar-brand ms-4" to="/">
+				<img className="logo me-2" src="http://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG34.png" />
 			</Link>
 
 

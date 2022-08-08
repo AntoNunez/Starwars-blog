@@ -1,15 +1,17 @@
+import Swal from 'sweetalert2'
+import 'animate.css';
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            c:0,
-            characters: null,
+            c: 0,
+            people: null,
             planets: null,
-            naves:null,
+            naves: null,
             favorite: [],
-            /* lista:[], */
+           
         },
         actions: {
-            getDataCharacters: async (url) => {
+            getDataPeople: async (url) => {
                 if (url.includes("page")) {
                     let page = url.split("=")[1];
                     if (page > 1) {
@@ -26,13 +28,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                         c: 0
                     })
                 }
-                const response = await fetch(url)
-                const data = await response.json();
+                const resp = await fetch(url)
+                const dataPeople = await resp.json();
                 setStore({
-                    characters: data,
+                    people: dataPeople
                 })
             },
-           
+
             getDataPlanets: async (url) => {
                 if (url.includes("page")) {
                     let page = url.split("=")[1];
@@ -75,21 +77,32 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
                 const resp = await fetch(url);
                 const dataNave = await resp.json();
-                setStore ({
+                setStore({
                     naves: dataNave
                 })
             },
             addFavorite: (personaje) => {
-                if (getStore().favorite.includes(personaje)){
-                    alert("Ya se encuentra en tus favoritos")
+                if (getStore().favorite.includes(personaje)) {
+                    Swal.fire({
+                        title: 'Ya está en tus favoritos!!!',
+                        color: '#ffcc00',
+                        background: 'black',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__zoomOutDown'
+                        }
+                    })
                 } else {
-                setStore({
-                    favorite: getStore().favorite.concat(personaje)
+                    setStore({
+                        favorite: getStore().favorite.concat(personaje)
 
-                })
-                getActions().saveFav()
-            }},
-        
+                    })
+                    getActions().saveFav()
+                }
+            },
+
             deleteFavorite: (personaje) => {
                 setStore({
                     favorite: getStore().favorite.filter(fav => fav !== personaje)
@@ -102,7 +115,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getList: () => {
                 if (localStorage.getItem('lista')) {
                     let data = localStorage.getItem('lista');
-                    setStore({ favorite: JSON.parse(data)})
+                    setStore({ favorite: JSON.parse(data) })
                 }
             }
         }

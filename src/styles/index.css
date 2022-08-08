@@ -1,71 +1,247 @@
-
-
-.row{
-   
-  background-image:linear-gradient(to right top, #080603, #22211e, #3a3834, #53514b, #6d6c64, #706f67, #74736b, #77766e, #63635c, #50504b, #3e3e3b, #2d2d2b);
-  background-repeat: no-repeat;
-  background-size: cover;
+.h-100 {
+  background-image: url("https://cdn.pixabay.com/photo/2016/01/27/15/25/space-1164579_1280.png");
 }
 
-
-.title{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    color: rgba(255, 213, 0, 0.644);
+.home_div {
+  height: 600px;
+  margin-top: 20px;
+  padding-top: 100px;
 }
 .logo {
-    margin-left: 20px;
-    width: 80px;
-	height: 80px;
-
+  margin-left: 5px;
+  width: 70px;
+  height: 70px;
 }
-.far.fa-star:hover {
-  font-size: 25px;
+.logo:hover {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  box-shadow: 0px 0px 15px 15px #ecae1ed7;
+  -webkit-box-shadow: 0px 0px 15px 15px #ecae1eb7;
+  transition: all 0.8s ease;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
 }
-
-.card-footer{
-
-  font-size: 35px;
-  margin-top: 5px;
-  padding: 8px;
+small{
+  top:auto;
+}
+button {
+  position: relative;
   cursor: pointer;
-  
+  outline: none;
+  border: 0;
+  top: 10px;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
 }
+
+button.learn-more {
+  width: 150px;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  left: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: #fbb321;
+  border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.28rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+.button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0px;
+  right:2px;
+  color: #ffbb33;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+  color: #fff;
+}
+.btn.btn-sm{
+  color: #ffbb33;
+  box-shadow: 2px 2px 2px #ffbb33;
+  margin: 5px;
+}
+.btn.btn-sm:hover{
+  box-shadow: -2px -2px 2px #ffbb33;
+  transition: .1s;
+  transition-property: box-shadow;
+}
+
+.fa-star {
+  font-size: 25px;
+  margin-top: 12px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+.fa-star:hover {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  box-shadow: 0px 0px 10px #ecae1ed7;
+  -webkit-box-shadow: 0px 0px 10px #ecae1eb7;
+  transition: all 0.75s ease;
+}
+
+.loader p {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  border: 4px double rgba(244, 225, 49, 0.397);
+  border-width: 4px 0;
+  padding: 1.0em 0em;
+  margin-top: 100px;
+  font-size: 16px;
+}
+
+.loader span {
+  font: 400 3em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  background: url(https://img.freepik.com/vector-premium/advertencia-rayas-amarillas-negras-textura-grunge-fondo-industrial_88653-1174.jpg?w=2000) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 30s linear infinite;
+  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+}
+
+  @-webkit-keyframes aitf {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+.card-footer {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.card-body {
+  color: white;
+}
+
+a {
+  color: #ffbb33;
+}
+
+.card {
+  background: rgba(15, 13, 13, 0.317);
+}
+
+.modal-content {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(10, 10, 10, 0.81) !important;
+}
+
+.col-lg-9 {
+  margin-top: 150px;
+}
+
 .container,
-  .container-fluid,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 299px){
+  .container,
+  .container-sm  {
+     max-width: 299px;
+   }
+ }
+@media (min-width: 576px) {
+  .container,
+  .container-sm {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-sm,
+  .container-md {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container,
   .container-sm,
   .container-md,
   .container-lg,
   .container-xl {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 1140px;
   }
-@media (min-width: 576px) {
-    .container, .container-sm {
-      max-width: 540px;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .container, .container-sm, .container-md {
-      max-width: 720px;
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .container, .container-sm, .container-md, .container-lg {
-      max-width: 960px;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .container, .container-sm, .container-md, .container-lg, .container-xl {
-      max-width: 1140px;
-    }
-  }
+}
+
+
 
 
 /* 

@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { useContext } from "react";
 
 
-export const item = () => {
+export const Item = () => {
 const { store, actions } = useContext(Context);
     
     return (
